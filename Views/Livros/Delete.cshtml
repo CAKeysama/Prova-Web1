@@ -1,0 +1,16 @@
+@model ProvaWeb1.Models.Livro
+
+<h2>Excluir Livro</h2>
+
+<div>
+    <h4>Tem certeza que deseja excluir este livro?</h4>
+    <p><b>Título:</b> @Model.Titulo</p>
+    <p><b>Autor:</b> @Model.Autor</p>
+    <p><b>Ano de Publicação:</b> @Model.AnoPublicacao</p>
+</div>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

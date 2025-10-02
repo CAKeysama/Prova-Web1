@@ -1,0 +1,31 @@
+@model IEnumerable<ProvaWeb1.Models.Filme>
+
+<h2>Lista de Filmes</h2>
+
+<a asp-action="Create" class="btn btn-primary">Novo Filme</a>
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Título</th>
+            <th>Diretor</th>
+            <th>Ano de Lançamento</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Titulo</td>
+                <td>@item.Diretor</td>
+                <td>@item.AnoLancamento</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

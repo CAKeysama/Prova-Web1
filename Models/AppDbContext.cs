@@ -10,5 +10,8 @@ namespace ProvaWeb1.Models
 
         // DbSet representa uma tabela do banco
         public DbSet<User> Users { get; set; }
+        public DbSet<Livro> Livros { get; set; }
+        public DbSet<Filme> Filmes { get; set; }
+        public DbSet<Comida> Comidas { get; set; }
     }
 }

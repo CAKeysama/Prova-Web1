@@ -1,0 +1,15 @@
+@model ProvaWeb1.Models.Comida
+
+<h2>Excluir Comida</h2>
+
+<div>
+    <h4>Tem certeza que deseja excluir esta comida?</h4>
+    <p><b>Nome:</b> @Model.Nome</p>
+    <p><b>Tipo:</b> @Model.Tipo</p>
+</div>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

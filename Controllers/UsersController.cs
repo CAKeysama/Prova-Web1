@@ -64,10 +64,19 @@ namespace ProvaWeb1.Controllers
         }
 
         // GET - Excluir usuário (confirmação)
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int? id)
         {
-            var user = _context.Users.Find(id);
-            if (user == null) return NotFound();
+            if (id == null)
+            {
+                return BadRequest("O ID do usuário é obrigatório.");
+            }
+
+            var user = _context.Users.FirstOrDefault(u => u.Id == id);
+            if (user == null)
+            {
+                return NotFound("Usuário não encontrado.");
+            }
+
             return View(user);
         }
 
@@ -81,7 +90,7 @@ namespace ProvaWeb1.Controllers
 
             _context.Users.Remove(user);
             _context.SaveChanges();
-            return RedirectToAction(nameof(Index));
+            return View("DeleteConfirmed");
         }
     }
 }
