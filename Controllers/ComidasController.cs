@@ -82,7 +82,7 @@ namespace ProvaWeb1.Controllers
 
             _context.Comidas.Remove(comida);
             _context.SaveChanges();
-            return View("DeleteConfirmed");
+            return RedirectToAction(nameof(Index));
         }
     }
 }

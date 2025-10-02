@@ -90,7 +90,8 @@ namespace ProvaWeb1.Controllers
 
             _context.Users.Remove(user);
             _context.SaveChanges();
-            return View("DeleteConfirmed");
+            // Após excluir, volta para a lista
+            return RedirectToAction(nameof(Index));
         }
     }
 }
